@@ -31,8 +31,8 @@ public class CommandeController {
 
     @PostMapping("/")
     public ResponseEntity<Commande> saveCommande(@RequestBody Commande commande){
-        Commande savedCommande = commandeService.saveCommande(commande);
-        return ResponseEntity.status(HttpStatus.CREATED).body(savedCommande);
+        Commande nouvelleCommande = commandeService.saveCommande(commande);
+        return ResponseEntity.status(HttpStatus.CREATED).body(nouvelleCommande);
     }
 
     @DeleteMapping("/{id}")

@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.List;
 
 
 @Entity
@@ -18,6 +19,8 @@ public class Commande {
     @ManyToOne
     private Authentification authentification;
 
+    @OneToMany(mappedBy = "commande")
+    private List<ProduitCommande> produitCommandes;
     private Date dateCommande;
     private String statut;
 

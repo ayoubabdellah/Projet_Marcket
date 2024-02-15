@@ -1,8 +1,12 @@
 package com.example.projet_marcket.Service;
 
 import com.example.projet_marcket.Entity.Commande;
+import com.example.projet_marcket.Entity.Produit;
+import com.example.projet_marcket.Entity.ProduitCommande;
 import com.example.projet_marcket.Repository.CommandeRepository;
+import com.example.projet_marcket.Repository.ProduitRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,6 +15,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class CommandeService {
     private final CommandeRepository commandeRepository;
+    private ProduitRepository produitRepository;
 
 
 
@@ -22,6 +27,12 @@ public class CommandeService {
 
     }
 
+    public Commande passerCommande(Commande commande){
+        for(ProduitCommande produitcommande : commande.getProduitCommandes()){
+            Produit produit = produitRepository.findById(produitcommande.getProduit().getId();
+        }
+        return commandeRepository.save(commande);
+    }
     public Commande saveCommande(Commande commande){
         return commandeRepository.save(commande);
     }
