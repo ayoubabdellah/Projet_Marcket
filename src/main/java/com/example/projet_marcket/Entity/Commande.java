@@ -23,5 +23,6 @@ public class Commande {
     private List<ProduitCommande> produitCommandes;
     private Date dateCommande;
     private String statut;
+    private double Totale;
 
 }
